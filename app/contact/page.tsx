@@ -14,18 +14,22 @@ export default function Contact() {
     phone: '',
     eventType: '',
     date: '',
+    city: '',
     package: '',
     notes: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const cityLine = formData.city.trim()
+      ? `المدينة: ${formData.city.trim()}\n`
+      : '';
     const message = `مرحباً، أرغب في حجز باقة ضيافة
 الاسم: ${formData.name}
 رقم الجوال: ${formData.phone}
 نوع المناسبة: ${formData.eventType}
 التاريخ: ${formData.date}
-الباقة: ${formData.package}
+${cityLine}الباقة: ${formData.package}
 ملاحظات: ${formData.notes}`;
 
     window.open(
@@ -175,6 +179,20 @@ export default function Contact() {
 
                 <div>
                   <label className="block text-[#3B2414] font-medium mb-2">
+                    المدينة
+                  </label>
+                  <input
+                    type="text"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#C9A646] focus:outline-none transition-colors"
+                    placeholder="اكتب المدينة (مثال: الرياض، الدمام، جدة...)"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[#3B2414] font-medium mb-2">
                     الباقة المطلوبة
                   </label>
                   <select
@@ -191,6 +209,7 @@ export default function Contact() {
                     <option value="باقة الضيوف">باقة الضيوف - 6,600 ريال</option>
                     <option value="الباقة الذهبية">الباقة الذهبية - 7,000 ريال</option>
                     <option value="الباقة الملكية">الباقة الملكية - 9,000 ريال</option>
+                    <option value="باقة الضيافة الفخامة">باقة الضيافة الفخامة - 11,500 ريال</option>
                     <option value="باقة مخصصة">باقة مخصصة</option>
                   </select>
                 </div>

@@ -2,7 +2,18 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Check, Crown, Star } from 'lucide-react';
+import { Check, Crown } from 'lucide-react';
+
+type PackageCard = {
+  name: string;
+  price: string;
+  featured?: boolean;
+  features: string[];
+  description?: string;
+  coverageIntro?: string;
+  coverageLines?: string[];
+  ctaLabel?: string;
+};
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -19,10 +30,10 @@ const staggerContainer = {
 };
 
 export default function Packages() {
-  const packages = [
+  const packages: PackageCard[] = [
     {
       name: 'باقة الضيف',
-      price: '1,998',
+      price: '999',
       features: [
         'مقــهويــــــــــــــــــــــــــــــــن 2 ',
         'مقـــــــــــــــــــــــــــــــــــــــادع 5 ',
@@ -35,7 +46,7 @@ export default function Packages() {
     },
     {
       name: 'الباقة البرونزية',
-      price: '3,188',
+      price: '1594',
       features: [
         'مقــهويــــــــــــــــــــــــــــــــن 3',
         'القهــــــوة السعــــــوديــة',
@@ -51,7 +62,7 @@ export default function Packages() {
     },
     {
       name: 'الباقة الفضية',
-      price: '3,600',
+      price: '1800',
       features: [
         'مقــهويــــــــــــــــــــــــــــن 4',
         'القهــــــوة السعــــوديــة',
@@ -67,7 +78,7 @@ export default function Packages() {
     },
     {
       name: 'الباقة التوثيقية',
-      price: '4,779',
+      price: '2390',
       features: [
         'مقــهويــــــــــــــــــــــــــــن 6',
         'القهــــــوة السعــــوديــة',
@@ -84,7 +95,7 @@ export default function Packages() {
     },
     {
       name: 'باقة الضيوف',
-      price: '6,600',
+      price: '3300',
       features: [
         'مقــهويــــــــــــــــــــــــــــن 8',
         'القهــــــوة السعــــوديــة',
@@ -102,7 +113,7 @@ export default function Packages() {
     },
     {
       name: 'الباقة الذهبية',
-      price: '7,000',
+      price: '3500',
       features: [
         'مقداع تمر 30 حبــه على 30 طاولات القص',
         'حلا مشــــكل 20 صحـــــن منــو على الخدمــة',
@@ -126,7 +137,7 @@ export default function Packages() {
     },
     {
       name: 'الباقة الملكية',
-      price: '9,000',
+      price: '4500',
       featured: true,
       features: [
         'مقــهويـــــــــــــــــــــــــــــــن 10',
@@ -142,7 +153,24 @@ export default function Packages() {
         'فرشة تشريفات الخـــزامة',
         'فرشــــــــــــات ملكيــــــــــــــة',
       ]
-    }
+    },
+    {
+      name: 'باقة الضيافة الفخامة',
+      price: '11,500',
+      description: 'الخدمات تشمل الضيافة',
+      features: [
+        'باقة الضيافة الضيوف: 7,500',
+        'الباقة الضيافة الملكية: 9,500',
+        'الباقة الضيافة الفخامة: 11,500',
+      ],
+      coverageIntro: 'تشمل المدن التالية:',
+      coverageLines: [
+        'رفحاء - روضة الهباس - النعيرية - الرفيعة',
+        'قرية العليا - مليجة - الخفجي - الأرطاوية',
+        'المجمعة - الزلفي - الصرار - الرفاع - إلهابه',
+      ],
+      ctaLabel: 'وش حاب تختار؟',
+    },
   ];
 
   return (
@@ -188,7 +216,9 @@ export default function Packages() {
                 className={`relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 ${
                   index === 0 ? 'mt-[6px] ' : ''
                 }${index === 3 ? 'h-[1048px] ' : ''}${
-                  pkg.featured ? 'ring-4 ring-[#C9A646] transform lg:scale-110 lg:col-span-1 md:col-span-2 lg:col-start-2 lg:row-start-3' : ''
+                  pkg.featured
+                    ? 'ring-4 ring-[#C9A646] transform lg:scale-110 lg:col-span-1 md:col-span-2 z-10'
+                    : ''
                 }`}
               >
                 {pkg.featured && (
@@ -226,6 +256,10 @@ export default function Packages() {
                     <span className="text-gray-600 text-lg">ريال سعودي</span>
                   </div>
 
+                  {pkg.description ? (
+                    <p className="text-center text-gray-700 leading-relaxed mb-8">{pkg.description}</p>
+                  ) : null}
+
                   <div className={`space-y-4 mb-8${index === 5 ? ' h-[730px]' : ''}`}>
                     {pkg.features.map((feature, i) => (
                       <div key={i} className="flex items-start gap-3">
@@ -237,6 +271,17 @@ export default function Packages() {
                     ))}
                   </div>
 
+                  {pkg.coverageIntro && pkg.coverageLines?.length ? (
+                    <div className="mb-8 pt-6 border-t border-[#C9A646]/25">
+                      <p className="text-sm font-semibold text-[#3B2414] mb-3">{pkg.coverageIntro}</p>
+                      <div className="space-y-2 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                        {pkg.coverageLines.map((line, i) => (
+                          <p key={i}>{line}</p>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+
                   <Link
                     href="/contact"
                     className={`block text-center py-4 rounded-full font-bold transition-all duration-300 ${
@@ -247,7 +292,7 @@ export default function Packages() {
                         : 'bg-[#3B2414] text-white hover:bg-[#2d1a0e]'
                     }`}
                   >
-                    احجز هذه الباقة
+                    {pkg.ctaLabel ?? 'احجز هذه الباقة'}
                   </Link>
                 </div>
               </motion.div>
