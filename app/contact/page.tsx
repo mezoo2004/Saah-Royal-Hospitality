@@ -202,13 +202,13 @@ ${cityLine}الباقة: ${formData.package}
                     className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-[#C9A646] focus:outline-none transition-colors"
                   >
                     <option value="">اختر الباقة</option>
-                    <option value="باقة الضيف">باقة الضيف - 1,998 ريال</option>
-                    <option value="الباقة البرونزية">الباقة البرونزية - 3,188 ريال</option>
-                    <option value="الباقة الفضية">الباقة الفضية - 3,600 ريال</option>
-                    <option value="الباقة التوثيقية">الباقة التوثيقية - 4,779 ريال</option>
-                    <option value="باقة الضيوف">باقة الضيوف - 6,600 ريال</option>
-                    <option value="الباقة الذهبية">الباقة الذهبية - 7,000 ريال</option>
-                    <option value="الباقة الملكية">الباقة الملكية - 9,000 ريال</option>
+                    <option value="باقة الضيف">باقة الضيف - 999 ريال</option>
+                    <option value="الباقة البرونزية">الباقة البرونزية - 1594 ريال</option>
+                    <option value="الباقة الفضية">الباقة الفضية - 1800 ريال</option>
+                    <option value="الباقة التوثيقية">الباقة التوثيقية - 1990 ريال</option>
+                    <option value="باقة الضيوف">باقة الضيوف - 3300 ريال</option>
+                    <option value="الباقة الذهبية">الباقة الذهبية - 3500 ريال</option>
+                    <option value="الباقة الملكية">الباقة الملكية - 4500 ريال</option>
                     <option value="باقة الضيافة الفخامة">باقة الضيافة الفخامة - 11,500 ريال</option>
                     <option value="باقة مخصصة">باقة مخصصة</option>
                   </select>
@@ -276,9 +276,9 @@ ${cityLine}الباقة: ${formData.package}
                   <Clock className="w-12 h-12 text-white mb-4" />
                   <h3 className="text-2xl font-bold text-white mb-3">ساعات العمل</h3>
                   <p className="text-white/90 text-lg leading-relaxed">
-                    السبت - الخميس: 9:00 صباحاً - 10:00 مساءً
+                    السبت - الخميس: 3:00  - 12:00 مساءً
                     <br />
-                    الجمعة: 4:00 مساءً - 10:00 مساءً
+                    الجمعة: 4:00 - 12:00 مساءً
                   </p>
                 </div>
               </div>
