@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Phone, Mail, Instagram, Twitter, Facebook } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
+import SocialLinks from '@/components/SocialLinks';
 
 export default function Footer() {
   return (
@@ -52,16 +53,18 @@ export default function Footer() {
                 <Mail className="w-5 h-5" />
                 deyafah@gmail.com
               </a>
-              <div className="flex gap-4 pt-2">
-                <a href="#" className="text-gray-300 hover:text-[#C9A646] transition-colors">
-                  <Instagram className="w-6 h-6" />
-                </a>
-                <a href="#" className="text-gray-300 hover:text-[#C9A646] transition-colors">
-                  <Twitter className="w-6 h-6" />
-                </a>
-                <a href="#" className="text-gray-300 hover:text-[#C9A646] transition-colors">
-                  <Facebook className="w-6 h-6" />
-                </a>
+              <a
+                href="https://maps.app.goo.gl/XY6DfQamkjacN7E86?g_st=iw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-gray-300 hover:text-[#C9A646] transition-colors"
+              >
+                <MapPin className="w-5 h-5 shrink-0" />
+                الموقع على خرائط Google
+              </a>
+              <div className="pt-2">
+                <p className="mb-2 text-sm text-gray-400">تابعنا</p>
+                <SocialLinks iconClassName="h-6 w-6" />
               </div>
             </div>
           </div>

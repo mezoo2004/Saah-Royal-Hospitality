@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   Coffee,
@@ -9,7 +10,6 @@ import {
   Crown,
   Users,
   Camera,
-  Sparkles,
   Check,
   Star,
   Phone,
@@ -80,19 +80,25 @@ export default function Home() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="inline-block mb-6"
+              className="inline-block h-[201px] w-[200px] py-0 leading-[88px] tracking-[9px]"
             >
-              <Sparkles className="w-16 h-16 text-[#C9A646] mx-auto" />
+              <Image
+                src="/logo.png"
+                alt="Saah Logo"
+                width={200}
+                height={201}
+                className="mx-auto mt-[-82px] mb-[-82px] h-[201px] w-[200px] object-contain p-0"
+              />
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mt-[-91px] mb-[17px] leading-tight">
               ضيافة فاخرة
               <br />
               <span className="text-[#C9A646]">تليق بمناسبتك</span>
             </h1>
 
             <p className="text-xl sm:text-2xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed">
-              نقدم تجربة ضيافة سعودية راقية بتفاصيل فاخرة وخدمة احترافية
+              نقدم تجربة ضيافة راقية بتفاصيل فاخرة وخدمة احترافية
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -274,7 +280,13 @@ export default function Home() {
                 className="text-center"
               >
                 <div className="bg-gradient-to-br from-[#C9A646] to-[#D4AF37] w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Sparkles className="w-10 h-10 text-white" />
+                  <Image
+                    src="/logo-white.png"
+                    alt="Saah Logo"
+                    width={500}
+                    height={500}
+                    className="w-[285px] h-auto object-contain"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-[#3B2414] mb-2">{item.title}</h3>
                 <p className="text-gray-600">{item.description}</p>
@@ -344,7 +356,7 @@ export default function Home() {
               هل أنت مستعد لتجربة ضيافة استثنائية؟
             </h2>
             <p className="text-xl text-[#3B2414]/80 mb-8">
-              احجز الآن عبر الواتساب أو الاتصال المباشر
+              احجز الآن عبر الواتساب أو زورنا في موقعنا
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a

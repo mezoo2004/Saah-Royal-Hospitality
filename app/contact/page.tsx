@@ -4,11 +4,9 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MessageCircle, MapPin, Clock } from 'lucide-react';
 import { useState } from 'react';
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-};
+const GOOGLE_MAPS_LINK = 'https://maps.app.goo.gl/XY6DfQamkjacN7E86?g_st=iw';
+const GOOGLE_MAPS_EMBED_SRC =
+  'https://www.google.com/maps?q=32.0848968%2C34.8589824&z=15&output=embed&hl=ar';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -65,8 +63,8 @@ export default function Contact() {
     {
       icon: MapPin,
       title: 'الموقع',
-      value: 'المملكة العربية السعودية',
-      link: '#'
+      value: 'عرض الموقع على خرائط Google',
+      link: GOOGLE_MAPS_LINK
     }
   ];
 
@@ -290,6 +288,42 @@ export default function Contact() {
               </div>
             </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-16"
+          >
+            <h2 className="mb-6 text-center text-3xl font-bold text-[#3B2414] md:text-4xl">
+              موقعنا على الخريطة
+            </h2>
+            <div className="relative mx-auto w-full max-w-5xl overflow-hidden rounded-2xl shadow-xl">
+              <iframe
+                src={GOOGLE_MAPS_EMBED_SRC}
+                title="موقع ضيافة سعة على خرائط Google"
+                className="block w-full max-w-full border-0"
+                style={{ border: 0 }}
+                width="100%"
+                height={450}
+                loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <p className="mt-4 text-center">
+              <a
+                href={GOOGLE_MAPS_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[#3B2414] underline decoration-[#C9A646] decoration-2 underline-offset-4 transition-colors hover:text-[#C9A646]"
+              >
+                <MapPin className="h-5 w-5 shrink-0" aria-hidden />
+                فتح الموقع في خرائط Google
+              </a>
+            </p>
+          </motion.div>
         </div>
       </section>
     </main>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Menu, X, Phone } from 'lucide-react';
+import SocialLinks from '@/components/SocialLinks';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
@@ -42,7 +43,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -52,9 +53,14 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <SocialLinks
+              className="gap-2 lg:gap-3"
+              iconClassName="h-5 w-5 text-white"
+              aria-label="حسابات التواصل الاجتماعي"
+            />
             <Link
               href="/contact"
-              className="bg-gradient-to-r from-[#C9A646] to-[#D4AF37] text-[#3B2414] px-6 py-2.5 rounded-full font-bold hover:shadow-lg hover:shadow-[#C9A646]/50 transition-all duration-300 flex items-center gap-2"
+              className="bg-gradient-to-r from-[#C9A646] to-[#D4AF37] text-[#3B2414] px-6 py-2.5 rounded-full font-bold hover:shadow-lg hover:shadow-[#C9A646]/50 transition-all duration-300 flex items-center gap-2 shrink-0"
             >
               <Phone className="w-4 h-4" />
               احجز الآن
@@ -96,6 +102,10 @@ export default function Navbar() {
               >
                 احجز الآن
               </Link>
+              <div className="pt-4 border-t border-[#C9A646]/20">
+                <p className="text-gray-400 text-sm mb-3">تابعنا</p>
+                <SocialLinks iconClassName="h-6 w-6 text-white" aria-label="حسابات التواصل الاجتماعي" />
+              </div>
             </div>
           </motion.div>
         )}

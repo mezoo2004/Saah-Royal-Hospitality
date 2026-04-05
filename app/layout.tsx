@@ -10,7 +10,11 @@ const tajawal = Tajawal({
   weight: ['200', '300', '400', '500', '700', '800', '900']
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ?? 'http://localhost:3000';
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'ضيافة سعة - ضيافة فاخرة تليق بمناسبتك',
   description: 'نقدم تجربة ضيافة سعودية راقية بتفاصيل فاخرة وخدمة احترافية',
   openGraph: {
